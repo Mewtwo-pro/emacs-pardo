@@ -1,0 +1,14 @@
+{
+  "current": "html",
+  "html": [
+    "cd ~/Documents/web/fireBase && npm start"
+  ],
+  "java": null,
+  "cpp": [
+    "cd ~/home/manuel/Documents/cppApps/nobgtk && g++ -std=c++17 test.cpp -o nodos_app `pkg-config --cflags --libs gtkmm-3.0` -pthread",
+    "cd ~/home/manuel/Documents/cppApps/nobgtk && ./nodos_app"
+  ],
+  "python": [
+    "cd ~/Documents/pythonApps/pdf_app && ./venv/bin/python leer.py"
+  ]
+}
