@@ -117,6 +117,7 @@
     (define-key dired-mode-map (kbd "w") #'set-path-work)
     (define-key dired-mode-map (kbd "a") #'nuevo-file)    
     (define-key dired-mode-map (kbd "j") #'buscar-dired)
+    (define-key dired-mode-map (kbd "c") 'dired-create-directory)
     (define-key dired-mode-map (kbd "k") 'dired-up-directory)
     (define-key dired-mode-map (kbd "x") #'eliminar_file_sel)
 )

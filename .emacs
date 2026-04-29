@@ -1,4 +1,4 @@
- ;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t -*-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -8,8 +8,6 @@
  '(custom-safe-themes
    '("9b9d7a851a8e26f294e778e02c8df25c8a3b15170e6f9fd6965ac5f2544ef2a9" "456697e914823ee45365b843c89fbc79191fdbaff471b29aad9dcbe0ee1d5641" "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d" "d97ac0baa0b67be4f7523795621ea5096939a47e8b46378f79e78846e0e4ad3d" "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0" "e4a702e262c3e3501dfe25091621fe12cd63c7845221687e36a79e17cf3a67e0" "7771c8496c10162220af0ca7b7e61459cb42d18c35ce272a63461c0fc1336015" "5c8a1b64431e03387348270f50470f64e28dfae0084d33108c33a81c1e126ad6" "4594d6b9753691142f02e67b8eb0fda7d12f6cc9f1299a49b819312d6addad1d" "7ec8fd456c0c117c99e3a3b16aaf09ed3fb91879f6601b1ea0eeaee9c6def5d9" "02d422e5b99f54bd4516d4157060b874d14552fe613ea7047c4a5cfa1288cf4f" default))
  '(font-use-system-font t)
- '(package-selected-packages
-   '(vterm tide avy cape company exec-path-from-shell f fzf google-translate ht jsonrpc lsp-mode lv markdown-mode nerd-icons-dired project pyvenv rainbow-delimiters spinner theme-buffet yasnippet))
  '(safe-local-variable-values '((lexicalinding . t)))
  '(tab-bar-mode t)
  '(tool-bar-mode nil))
@@ -372,16 +370,13 @@
 (defun my-k ()
 	(interactive)
 	(cond
-	 ((= my-toggle-var 3)   
-		(setq my-toggle-var 1)
-		(end-of-buffer)
-		(messages-mode my-toggle-var)
-		(message "Salto al final del buffer")) 
 	 ((= my-toggle-var 4)
 		(insert "_")       ; inserta dos comillas dobles
 	    (setq my-toggle-var 0))
 	 ((= my-toggle-var 1)
-		(backward-char))
+	    (setq my-toggle-var 0)
+	    (my-set-dos-letras)
+	 )
 	 ((= my-toggle-var 2)
 				(call-interactively 'fzf-recentf)
 				(setq my-toggle-var 1)(messages-mode my-toggle-var))
@@ -456,8 +451,7 @@
 	(interactive)
 	(cond
 	((= my-toggle-var 1)
-	  (setq my-toggle-var 0)
-	  (query-replace)
+	  (kill-line)
 	)
 	 ((= my-toggle-var 4)
 		(insert "{}")
@@ -1209,7 +1203,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "cJetBrainsMonoNL Nerd Font" :foundry "JB" :slant normal :weight extra-bold :height 181 :width normal))))
+ '(default ((t (:family "JetBrainsMono Nerd Font Propo" :foundry "JB" :slant normal :weight regular :height 203 :width normal))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "#ffffff" :weight bold))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#ffffff" :weight bold))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "#ffffff" :weight bold))))

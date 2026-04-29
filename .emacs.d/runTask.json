@@ -1,7 +1,7 @@
 {
   "current": "html",
   "html": [
-    "cd ~/Documents/web/fireBase && npm start"
+    "cd ~/Documents/web/game && npm start"
   ],
   "java": null,
   "cpp": [

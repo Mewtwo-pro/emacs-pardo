@@ -87,3 +87,50 @@
 	"Salta con avy usando el carácter guardado en `xbuscar`."
 	(interactive)
 	(avy-goto-char (string-to-char xbuscar)))
+(defvar char-abajo "a")	
+(defvar char-arriba "a")
+(defun my-set-dos-letras ()
+  "Pide una cadena y guarda las dos primeras letras en `xletra1` y `xletra2`."
+  (interactive)
+  	(define-key minibuffer-local-map (kbd "TAB")
+		(lambda ()
+			(interactive)
+			(cond 
+			  ((= my-toggle-var 0)
+			  (setq my-toggle-var 4))
+			  ((= my-toggle-var 4)
+			   (forward-char)
+                           (setq my-toggle-var 0))
+			)))
+
+  (let* ((entrada (read-string "Ingrese al menos dos letras: "))
+         (len (length entrada)))
+    (if (>= len 2)
+        (progn
+          (setq char-arriba (substring entrada 0 1))
+          (setq char-abajo (substring entrada 1 2))
+	  (setq my-toggle-var 2)
+	  (messages-mode my-toggle-var)
+	  (mi-seleccionar-rango-por-letras))
+      (message "Debe ingresar al menos dos letras.")))) ;
+
+(defun mi-seleccionar-rango-por-letras ()
+  (interactive)
+  (let ((pos-inicio) (pos-fin))
+    (save-excursion
+      ;; Buscar hacia atrás (arriba/izquierda)
+      (if (search-backward char-arriba nil t)
+          (setq pos-inicio (1+ (point)))
+        (error "No se encontró la primera letra hacia atrás")))
+    (save-excursion
+      ;; Buscar hacia adelante (abajo/derecha)
+      (if (search-forward char-abajo nil t)
+          (setq pos-fin (1- (point)))
+        (error "No se encontró la segunda letra hacia adelante")))
+    
+    ;; Establecer la marca y el punto para seleccionar el rango
+    (goto-char pos-fin)
+    (push-mark pos-inicio t t)))
+
+;; Asignar a un atajo de teclado
+(global-set-key (kbd "C-c s") 'mi-seleccionar-rango-por-letras)
