@@ -1,0 +1,15 @@
+delete-window                    modo 2 - m
+delete-tab                       modo 2 - i
+new-tab                          modo 2 - b
+split-window-right               modo 2 - g
+split-window-down                modo 2 - n
+borrar-lado-derecho              modo 1 - g
+copiar-ruta-portapapeles         modo 5 - q
+buscar-palabra-seleccion         modo 2 - v
+reanudar-modo-busqueda           modo 5 - v
+nueva-carpeta-dired              dired - c
+buscar-remplazar                 modo 1 - l
+seleccion-end-avi                modo 1 - r
+seleccion-between                modo 1 - k
+inicio-current-buffer            modo 5 - w
+final-current-buffer             modo 5 - e
